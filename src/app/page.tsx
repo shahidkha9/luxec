@@ -2,11 +2,6 @@
 import Image from "next/image"
 import { Input } from "@/components/ui/input"
 import { Button } from "@/components/ui/button"
-<<<<<<< HEAD
-=======
-import { FacebookIcon, InstagramIcon, TwitterIcon } from "@/components/ui/icons"
-import { CartIcon } from "@/components/CartIcon"
->>>>>>> ce834c932b44e753e901ec5a89ff03cd930cd418
 import { useState, useEffect } from "react"
 import { QuickViewModal } from "@/components/QuickViewModal"
 import { useRouter } from "next/navigation"
@@ -56,7 +51,6 @@ export default function Home() {
     },
   ]
 
-<<<<<<< HEAD
   const [currentImageIndex, setCurrentImageIndex] = useState(0)
   const heroImages = [
     "/assets/luxury_perfume.jpeg",
@@ -64,24 +58,11 @@ export default function Home() {
     "/assets/midnight_mystery_perfume.jpeg",
   ]
 
-=======
-  // State for managing the current image index in the Hero section
-  const [currentImageIndex, setCurrentImageIndex] = useState(0)
-
-  const heroImages = [
-    "/assets/luxury_perfume.jpeg",
-    "/assets/ethereal_essence_perfume.jpeg", // You can add more images here
-    "/assets/midnight_mystery_perfume.jpeg",
-  ]
-
-  // Auto-change image every 5 seconds
->>>>>>> ce834c932b44e753e901ec5a89ff03cd930cd418
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentImageIndex((prevIndex) => (prevIndex + 1) % heroImages.length)
     }, 5000)
 
-<<<<<<< HEAD
     return () => clearInterval(interval)
   }, [heroImages.length])
 
@@ -89,42 +70,6 @@ export default function Home() {
     <div className="min-h-screen bg-white text-black">
       {/* Hero Section */}
       <section className="py-12 md:py-20 bg-deep-purple text-white text-center">
-=======
-    return () => clearInterval(interval) // Cleanup interval on component unmount
-  }, [])
-
-  return (
-    <div className="min-h-screen bg-white text-black">
-      {/* Header */}
-      <header className="border-b border-gray-200">
-        <div className="container mx-auto px-4 py-4 flex flex-wrap items-center justify-between">
-          <Link href="/" className="text-2xl font-bold">
-            LUXE SCENT
-          </Link>
-          <nav className="hidden md:flex space-x-6">
-            <Link href="/shop" className="hover:text-gold transition-colors">
-              Shop
-            </Link>
-            <Link href="/collections" className="hover:text-gold transition-colors">
-              Collections
-            </Link>
-            <Link href="/about" className="hover:text-gold transition-colors">
-              About
-            </Link>
-            <Link href="/contact" className="hover:text-gold transition-colors">
-              Contact
-            </Link>
-          </nav>
-          <div className="flex items-center space-x-4 mt-4 md:mt-0">
-            <Input type="search" placeholder="Search..." className="w-40 md:w-auto border-gold focus:ring-gold" />
-            <CartIcon />
-          </div>
-        </div>
-      </header>
-
-      {/* Hero Section with Auto-changing Images */}
-      <section className="py-12 md:py-20 bg-deep-purple text-white">
->>>>>>> ce834c932b44e753e901ec5a89ff03cd930cd418
         <div className="container mx-auto px-4 flex flex-col md:flex-row items-center">
           <div className="md:w-1/2 mb-8 md:mb-0 text-center md:text-left">
             <h1 className="text-3xl md:text-5xl font-bold">Discover Your Signature Scent</h1>
@@ -132,17 +77,7 @@ export default function Home() {
             <Button className="bg-gold hover:bg-gold/90 text-black" onClick={handleShopNow}>Shop Now</Button>
           </div>
           <div className="md:w-1/2">
-<<<<<<< HEAD
             <Image src={heroImages[currentImageIndex]} alt="Luxury Perfume" width={400} height={400} className="rounded-lg w-full h-auto" />
-=======
-            <Image
-              src={heroImages[currentImageIndex]}
-              alt="Luxury Perfume"
-              width={400}
-              height={400}
-              className="rounded-lg shadow-lg w-full h-auto transition-all duration-500 ease-in-out"
-            />
->>>>>>> ce834c932b44e753e901ec5a89ff03cd930cd418
           </div>
         </div>
       </section>
@@ -179,9 +114,4 @@ export default function Home() {
       {selectedProduct && <QuickViewModal product={selectedProduct} isOpen={!!selectedProduct} onClose={closeQuickView} />}
     </div>
   )
-<<<<<<< HEAD
 }
-=======
-  }
-      
->>>>>>> ce834c932b44e753e901ec5a89ff03cd930cd418
