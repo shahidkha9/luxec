@@ -5,7 +5,7 @@ import { Input } from "@/components/ui/input"
 import { Button } from "@/components/ui/button"
 import { FacebookIcon, InstagramIcon, TwitterIcon } from "@/components/ui/icons"
 import { CartIcon } from "@/components/CartIcon"
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import { QuickViewModal } from "@/components/QuickViewModal"
 import { useRouter } from "next/navigation"
 import type { Product } from "@/types"
@@ -54,6 +54,24 @@ export default function Home() {
     },
   ]
 
+  // State for managing the current image index in the Hero section
+  const [currentImageIndex, setCurrentImageIndex] = useState(0)
+
+  const heroImages = [
+    "/assets/luxury_perfume.jpeg",
+    "/assets/ethereal_essence_perfume.jpeg", // You can add more images here
+    "/assets/midnight_mystery_perfume.jpeg",
+  ]
+
+  // Auto-change image every 5 seconds
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentImageIndex((prevIndex) => (prevIndex + 1) % heroImages.length)
+    }, 5000)
+
+    return () => clearInterval(interval) // Cleanup interval on component unmount
+  }, [])
+
   return (
     <div className="min-h-screen bg-white text-black">
       {/* Header */}
@@ -83,7 +101,7 @@ export default function Home() {
         </div>
       </header>
 
-      {/* Hero Section */}
+      {/* Hero Section with Auto-changing Images */}
       <section className="py-12 md:py-20 bg-deep-purple text-white">
         <div className="container mx-auto px-4 flex flex-col md:flex-row items-center">
           <div className="md:w-1/2 mb-8 md:mb-0">
@@ -95,11 +113,11 @@ export default function Home() {
           </div>
           <div className="md:w-1/2">
             <Image
-              src="/assets/luxury_perfume.jpeg"
+              src={heroImages[currentImageIndex]}
               alt="Luxury Perfume"
               width={400}
               height={400}
-              className="rounded-lg shadow-lg w-full h-auto"
+              className="rounded-lg shadow-lg w-full h-auto transition-all duration-500 ease-in-out"
             />
           </div>
         </div>
@@ -232,5 +250,5 @@ export default function Home() {
       )}
     </div>
   )
-}
-
+  }
+      
