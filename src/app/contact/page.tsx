@@ -13,19 +13,19 @@ export default function ContactPage() {
           </p>
           <div className="space-y-4">
             <p>
-              <strong>Email:</strong> info@luxescent.com
+              <strong>Email:</strong> shahidkha993@gmail.com
             </p>
             <p>
-              <strong>Phone:</strong> +1 (555) 123-4567
+              <strong>Phone:</strong> +92 336 1808581
             </p>
             <p>
               <strong>Address:</strong>
               <br />
-              123 Fragrance Lane
+              D-306,
               <br />
-              Perfume City, PC 12345
+              Street # 10, Road # 1
               <br />
-              United States
+              karachi, pakistan
             </p>
           </div>
         </div>
