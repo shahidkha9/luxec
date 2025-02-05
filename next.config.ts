@@ -1,9 +1,15 @@
-import type { NextConfig } from "next";
+// next.config.ts
+import { NextConfig } from 'next'
 
 const nextConfig: NextConfig = {
-  env: {
-    BASE_URL: "https://luxec-187i.vercel.app", // Apni actual site ka URL yahan dalain
+  async rewrites() {
+    return [
+      {
+        source: '/sitemap.xml',
+        destination: '/public/sitemap.xml',
+      },
+    ]
   },
-};
+}
 
-export default nextConfig;
+export default nextConfig
